@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: admin
+    password: 123456
+    url: jdbc:mysql://localhost:3306/tmall_springboot?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    servlet:
+      content-type: text/html
+mybatis:
+  type-aliases-package: com.le.tmall_springboot_pojo
+  mapper-locations: classpath:com/le/tmall_springboot/mapper/*.xml
