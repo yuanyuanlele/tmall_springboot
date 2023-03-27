@@ -11,6 +11,6 @@ public class AdminPageController {
     }
     @GetMapping("/admin_category_list")
     public String listCategory(){
-        return "redirect:admin/listCategory";
+        return "admin/listCategory";
     }
 }

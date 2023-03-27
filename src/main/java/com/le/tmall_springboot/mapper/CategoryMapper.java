@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface CategoryMapper {
     List<Category> list();
+
+    int add(Category category);
 }

@@ -15,4 +15,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> list() {
         return categoryMapper.list();
     }
+
+    @Override
+    public void add(Category category) {
+        categoryMapper.add(category);
+    }
 }
