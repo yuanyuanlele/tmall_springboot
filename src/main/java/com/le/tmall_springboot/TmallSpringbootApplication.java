@@ -8,7 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ServletComponentScan
-@MapperScan("com.le.tmall_springboot.mapper")
 public class TmallSpringbootApplication {
 
     public static void main(String[] args) {
