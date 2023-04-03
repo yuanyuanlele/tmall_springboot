@@ -41,4 +41,9 @@ public class CategoryServiceImpl implements CategoryService {
         Category c= categoryDAO.findById(id).get();
         return c;
     }
+
+    @Override
+    public void update(Category bean) {
+        categoryDAO.save(bean);
+    }
 }

@@ -32,8 +32,9 @@ public class CategoryController {
     }
     public void saveOrUpdateImageFile(Category bean, MultipartFile image, HttpServletRequest request)
             throws IOException {
-        File imageFolder= new File(request.getServletContext().getRealPath("img/category"));
+        File imageFolder= new File("D:/git shangchuan/tmall_springboot/src/main/resources/static/img/category");
         File file = new File(imageFolder,bean.getId()+".jpg");
+        System.out.println(file.getPath());
         if(!file.getParentFile().exists())
             file.getParentFile().mkdirs();
         image.transferTo(file);
@@ -51,6 +52,17 @@ public class CategoryController {
     @GetMapping("/categories/{id}")
     public Category get(@PathVariable("id") int id) throws Exception {
         Category bean=categoryService.get(id);
+        return bean;
+    }
+    @PutMapping("/categories/{id}")
+    public Object update(Category bean, MultipartFile image,HttpServletRequest request) throws Exception {
+        String name = request.getParameter("name");
+        bean.setName(name);
+        categoryService.update(bean);
+
+        if(image!=null) {
+            saveOrUpdateImageFile(bean, image, request);
+        }
         return bean;
     }
 
