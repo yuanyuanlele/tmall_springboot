@@ -15,11 +15,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-
-    @Autowired
-    ProductDAO productDAO;
-    @Autowired
-    CategoryService categoryService;
+    @Autowired ProductDAO productDAO;
+    @Autowired CategoryService categoryService;
 
     public void add(Product bean) {
         productDAO.save(bean);
@@ -37,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
         productDAO.save(bean);
     }
 
-    public Page4Navigator<Product> list(int cid, int start, int size, int navigatePages) {
+    public Page4Navigator<Product> list(int cid, int start, int size,int navigatePages) {
         Category category = categoryService.get(cid);
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         Pageable pageable = PageRequest.of(start, size, sort);

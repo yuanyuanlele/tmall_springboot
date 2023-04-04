@@ -12,13 +12,11 @@ import java.util.Date;
 
 @RestController
 public class ProductController {
-    @Autowired
-    ProductService productService;
-    @Autowired
-    CategoryService categoryService;
+    @Autowired ProductService productService;
+    @Autowired CategoryService categoryService;
 
     @GetMapping("/categories/{cid}/products")
-    public Page4Navigator<Product> list(@PathVariable("cid") int cid, @RequestParam(value = "start", defaultValue = "0") int start, @RequestParam(value = "size", defaultValue = "5") int size) throws Exception {
+    public Page4Navigator<Product> list(@PathVariable("cid") int cid, @RequestParam(value = "start", defaultValue = "0") int start,@RequestParam(value = "size", defaultValue = "5") int size) throws Exception {
         start = start<0?0:start;
         Page4Navigator<Product> page =productService.list(cid, start, size,5 );
 
